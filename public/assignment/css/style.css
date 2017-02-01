@@ -1,7 +1,52 @@
-input.form-control {
+input.form-control, textarea.form-control {
     margin-bottom: 5px;
 }
 
 body {
-    padding-top: 36px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    overflow: hidden;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+.navbar-default .navbar-text {
+    color: white;
+}
+.navbar-default .navbar-brand:hover {
+    color: white;
+    background-color: transparent;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.cust-left-pane {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 15px;
+    overflow: auto;
+    background-color:white;
+}
+.cust-right-pane {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow-y: auto;
 }
