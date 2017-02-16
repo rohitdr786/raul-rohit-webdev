@@ -1,29 +1,42 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-text pull-left">
-            <a href="../user/profile.html">
+    <div class="container-fluid bg-primary">
+
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+            <div class="navbar-text pull-left">
                 <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-        </div>
-        <div class="navbar-text pull-right">
-            <a href="website-new.html">
-                <span class="glyphicon glyphicon-plus"></span>
+            </div>
+        </a>
+
+
+        <a href="" ng-click="model.update(model.widget)">
+            <div class="navbar-text pull-right ">
+                <span class="glyphicon glyphicon-ok"></span>
+            </div>
+        </a>
+        <div class="pull-right col-xs-2">
+            <a href="" ng-click="model.delete()">
+                <div class="navbar-text pull-left">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </div>
             </a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Widget Editor</a>
+            <a class="navbar-brand" href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}">Widget Editor</a>
         </div>
     </div>
 </nav>
-
+<div ng-show="model.error" class="alert alert-danger">{{model.error}}</div>
+<div ng-show="model.message" class="alert alert-success">{{model.message}}</div>
 <div class="container-fluid"
      ng-include="model.getEditorTemplateUrl(model.widget.widgetType)">
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Footer</a>
-        </div>
+    <div class="container-fluid bg-primary">
+        <a href="#/user/{{model.userId}}">
+            <div class="navbar-text pull-right">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        </a>
     </div>
 </nav>

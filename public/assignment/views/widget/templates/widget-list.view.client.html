@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid bg-primary">
 
-        <a href="../../page/templates/page-list.view.client.html">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
             <div class="navbar-text pull-left">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </div>
@@ -13,7 +13,7 @@
             </div>
         </a>
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">Widgets</a>
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget" class="navbar-brand">Widgets</a>
         </div>
     </div>
 </nav>
@@ -41,10 +41,10 @@
             </div>
         </div>
     </div>
-
+</div>
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid bg-primary">
-        <a href="../../user/templates/profile.view.client.html">
+        <a href="#/user/{{model.userId}}">
             <div class="navbar-text pull-right">
                 <span class="glyphicon glyphicon-user"></span>
             </div>

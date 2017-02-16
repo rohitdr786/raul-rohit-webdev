@@ -44,7 +44,7 @@
             },
             {
                 "_id": "678", "name": "Content Video", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                "url": "https://youtu.be/AM2Ivdi9c4E"
+                "url": "https://www.youtube.com/embed/Kl5B6MBAntI"
             },
             {
                 "_id": "789",
@@ -91,15 +91,15 @@
             return null;
         }
 
-        function updateWidget(widgetID, updatedWidget) {
+        function updateWidget(updatedWidget) {
             for (var wg in widgets) {
                 var widget = widgets[wg];
-                if (widget._id === widgetID) {
+                if (widget._id === updatedWidget._id) {
                     widget.size = updatedWidget.size;
                     widget.text = updatedWidget.text;
                     widget.width = updatedWidget.width;
                     widget.url = updatedWidget.url;
-                    return widget;
+                    return angular.copy(widget);
                 }
             }
             return null;
@@ -109,8 +109,10 @@
             for (var wg in widgets) {
                 if (widgets[wg]._id === widgetID) {
                     widgets.splice(wg, 1);
+                    return "deleted";
                 }
             }
+            return null;
         }
 
         function createWidgetFromType(pageID, widgetType) {
