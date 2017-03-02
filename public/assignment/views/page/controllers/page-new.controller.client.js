@@ -15,12 +15,12 @@
 
             function createPage(newPageData){
                 if(newPageData!=null){
-                    var status=PageService.createPage(websiteId,newPageData);
-                    if(status==null){
+                    var promise=PageService.createPage(websiteId,newPageData);
+                    promise.then(function(response){
+                        $location.url("/user/"+userId+"/website/"+response.data.websiteId+"/page");
+                    },function(){
                         vm.error="Unable to create new page";
-                    }else{
-                        $location.url("/user/"+userId+"/website/"+websiteId+"/page");
-                    }
+                    });
                 }
             }
 

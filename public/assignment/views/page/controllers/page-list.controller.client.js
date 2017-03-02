@@ -10,7 +10,17 @@
             var websiteId=$routeParams.wid;
             vm.userId=userId;
             vm.websiteId=websiteId;
-            vm.pages=PageService.findPageByWebsiteId(websiteId);
+
+            function init(){
+                var promise=PageService.findPageByWebsiteId(websiteId);
+                promise.success(function(response){
+                    vm.pages=response;
+                });
+                promise.error(function(){
+                    vm.error="Unable to fetch pages";
+                });
+            }
+            init();
 
         });
 })();

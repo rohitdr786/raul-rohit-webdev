@@ -10,26 +10,45 @@
             var websiteId=$routeParams.wid;
             vm.userId=userId;
             vm.websiteId=websiteId;
-            vm.websites=WebsiteService.findWebsitesByUser(userId);
-            vm.websiteData=WebsiteService.findWebsiteById(websiteId);
             vm.delete=deleteWebsite;
             vm.update=update;
 
+
+
+            function init(){
+                var promise=WebsiteService.findWebsitesByUser(userId);
+                promise.success(function(response){
+                    vm.websites=response;
+                });
+                promise.error(function(){
+                    vm.error="Unable to fetch websites for user ="+userId;
+                });
+
+                promise=WebsiteService.findWebsiteById(websiteId);
+                promise.then(function(response){
+                    vm.websiteData=response.data;
+                },function(){
+                    vm.error="Unable to fetch website data for website ="+websiteId;
+                });
+            }
+            init();
+
             function deleteWebsite(){
-                var status=WebsiteService.deleteWebsite(websiteId);
-                if(status==null){
-                    vm.error="Unable to delete";
-                }else{
+                var promise=WebsiteService.deleteWebsite(websiteId);
+                promise.success(function(response){
                     $location.url("/user/"+userId+"/website");
-                }
+                });
+                promise.error(function(response){
+                    vm.error="Unable to delete";
+                });
             }
             function update(updatedWebsite){
-                var status=WebsiteService.updateWebsite(updatedWebsite);
-                if(status==null){
+                var promise=WebsiteService.updateWebsite(updatedWebsite);
+                promise.then(function(response){
+                    $location.url("/user/"+userId+"/website");
+                },function(response){
                     vm.error="Unable to update";
-                }else{
-                    vm.message="Updated successfully";
-                }
+                });
             }
         });
 })();

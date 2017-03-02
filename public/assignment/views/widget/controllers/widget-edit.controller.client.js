@@ -18,34 +18,48 @@
         vm.create=createWidget;
 
         function createWidget(widgetType){
-            var status=WidgetService.createWidgetFromType(vm.pageId,widgetType);
-            if(status==null){
+            var promise=WidgetService.createWidgetFromType(vm.pageId,widgetType);
+            promise.success(function(response){
+                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+response);
+            });
+            promise.error(function(){
                 vm.error="Unable to create a widget";
-            }else{
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+status);
-            }
+            });
         }
 
         function deleteWidget() {
-            var status=WidgetService.deleteWidget(vm.widgetId);
-            if(status==null){
-                vm.error="Unable to delete widget";
-            }else{
+            var promise=WidgetService.deleteWidget(vm.widgetId);
+            promise.success(function(response){
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
-            }
+            });
+            promise.error(function(){
+                vm.error="Unable to delete widget";
+            });
+
         }
 
         function updateWidget(newWidget){
-            var status=WidgetService.updateWidget(newWidget);
-            if(status==null){
-                vm.error="Unable to update widget";
-            }else{
+
+            var promise=WidgetService.updateWidget(newWidget);
+            promise.success(function(response){
                 vm.message="Widget successfully updated";
-            }
+            });
+            promise.error(function(){
+                vm.error="Unable to update widget";
+            });
+
         }
 
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            if(vm.widgetId){
+                var promise=WidgetService.findWidgetById(vm.widgetId);
+                promise.success(function(response){
+                    vm.widget =response;
+                });
+                promise.error(function(){
+                    vm.error="Unable to find widget by id";
+                });
+            }
         }
         init();
 

@@ -10,15 +10,27 @@
             var userId=$routeParams.uid;
             vm.userId=userId;
             vm.create=createWebsite;
-            vm.websites=WebsiteService.findWebsitesByUser(userId);
+
+            function init(){
+                var promise=WebsiteService.findWebsitesByUser(userId);
+                promise.success(function(response){
+                    vm.websites=response;
+                });
+                promise.error(function(){
+                    vm.error="Unable to fetch websites for user ="+userId;
+                });
+            }
+            init();
+
             function createWebsite(newWebsiteData){
                 if(newWebsiteData!=null){
-                    var status=WebsiteService.createWebsite(userId,newWebsiteData);
-                    if(status==null){
+                    var promise=WebsiteService.createWebsite(userId,newWebsiteData);
+                    promise.success(function(response){
+                        $location.url("/user/"+response.developerId+"/website");
+                    });
+                    promise.error(function(){
                         vm.error="Unable to add new website";
-                    }else{
-                        $location.url("/user/"+userId+"/website");
-                    }
+                    });
                 }
             }
 

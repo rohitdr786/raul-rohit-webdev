@@ -6,54 +6,7 @@
         .module("WebAppMaker")
         .service("WidgetService", WidgetService);
 
-    function WidgetService() {
-        var widgets = [
-            {
-                "_id": "123",
-                "name": "Main Header",
-                "widgetType": "HEADER",
-                "pageId": "321",
-                "size": "2",
-                "text": "GIZMODO"
-            },
-            {
-                "_id": "234",
-                "name": "Paragraph Header",
-                "widgetType": "HEADER",
-                "pageId": "321",
-                "size": "4",
-                "text": "Lorem ipsum"
-            },
-            {
-                "_id": "345", "name": "Illus. Image", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-                "url": "https://i.kinja-img.com/gawker-media/image/upload/s--UE7cu6DV--/c_scale,fl_progressive,q_80,w_800/xoo0evqxzxrrmrn4ayoq.jpg"
-            },
-            {
-                "_id": "456", "name": "Paragraph Text",
-                "widgetType": "HTML",
-                "pageId": "321",
-                "text": '<p>Anker’s kevlar-reinforced PowerLine cables are <a href="http://gear.lifehacker.com/your-favorite-lightning-cables-anker-powerline-and-pow-1782036601" target="_blank" rel="noopener">far and away our readers’ top choice for charging their gadgets</a>, and you can save on several models today, including some from the nylon-wrapped PowerLine+ collection. I use these cables every single day, and I’ve never had one fray or stop working. Just be sure to note the promo codes below.<br></p>'
-            },
-            {
-                "_id": "567",
-                "name": "Image Caption",
-                "widgetType": "HEADER",
-                "pageId": "321",
-                "size": "4",
-                "text": "Lorem ipsum"
-            },
-            {
-                "_id": "678", "name": "Content Video", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                "url": "https://www.youtube.com/embed/Kl5B6MBAntI"
-            },
-            {
-                "_id": "789",
-                "name": "Video Description",
-                "widgetType": "HTML",
-                "pageId": "321",
-                "text": "<p>Lorem ipsum</p>"
-            }
-        ];
+    function WidgetService($http) {
 
         var api = {
             "createWidget": createWidget,
@@ -65,54 +18,33 @@
         };
         return api;
 
-        function createWidget(pageID, widget) {
-            widget.pageId = pageID;
-            widget._id = new Date().getTime().toString();
-            widgets.push(widget);
-            return widget._id;
+        function createWidget(pageId, widget) {
+
+            return $http.post("/api/page/"+pageId+"/widget",widget);
+
         }
 
         function findWidgetsByPageId(pageID) {
-            var pageWidgets = [];
-            for (var wg in widgets) {
-                if (widgets[wg].pageId === pageID) {
-                    pageWidgets.push(widgets[wg]);
-                }
-            }
-            return pageWidgets;
+
+            return $http.get("/api/page/"+pageID+"/widget");
+
         }
 
         function findWidgetById(widgetID) {
-            for (var wg in widgets) {
-                if (widgets[wg]._id === widgetID) {
-                    return angular.copy(widgets[wg]);
-                }
-            }
-            return null;
+
+            return $http.get("/api/widget/"+widgetID);
+
         }
 
         function updateWidget(updatedWidget) {
-            for (var wg in widgets) {
-                var widget = widgets[wg];
-                if (widget._id === updatedWidget._id) {
-                    widget.size = updatedWidget.size;
-                    widget.text = updatedWidget.text;
-                    widget.width = updatedWidget.width;
-                    widget.url = updatedWidget.url;
-                    return angular.copy(widget);
-                }
-            }
-            return null;
+
+            return $http.put("/api/widget/"+updatedWidget._id,updatedWidget);
+
         }
 
         function deleteWidget(widgetID) {
-            for (var wg in widgets) {
-                if (widgets[wg]._id === widgetID) {
-                    widgets.splice(wg, 1);
-                    return "deleted";
-                }
-            }
-            return null;
+
+            return $http.delete("/api/widget/"+widgetID);
         }
 
         function createWidgetFromType(pageID, widgetType) {

@@ -13,12 +13,25 @@
                     vm.error="Password does not match";
                     return false;
                 }
-                var user=UserService.addNewUser(newUser);
-                if(user==null){
-                    vm.error="Unable to add user";
-                }else{
-                    $location.url("/user/"+user._id);
-                }
+                UserService.findUserByUsername(newUser.username)
+                    .success(function(user){
+                        vm.error="Sorry!!! Username already taken";
+                    })
+                    .error(function(){
+                        UserService.addNewUser(newUser)
+                            .success(function(user){
+                                $location.url("/user/"+user._id);
+                            })
+                            .error(function(user){
+                                vm.error="Unable to add user";
+                            });
+                    });
+                // var user=UserService.addNewUser(newUser);
+                // if(user==null){
+                //     vm.error="Unable to add user";
+                // }else{
+                //     $location.url("/user/"+user._id);
+                // }
             };
 
         });

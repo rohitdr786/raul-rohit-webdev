@@ -7,15 +7,21 @@
         .controller("loginController",function (UserService,$location){
             var vm=this;
             vm.login=login;
+            vm.error=null;
 
             function login(user){
                 if(user!=null){
                     var userReturned=UserService.findUserByCredential(user.name,user.pass);
-                    if(userReturned==null){
-                        vm.error="User not found";
-                    }else{
-                        $location.url("/user/"+userReturned._id);
-                    }
+                    userReturned.then(function(user){
+                            $location.url("/user/"+user.data._id);
+                        },function(){
+                            vm.error="User not found";
+                        });
+                    // if(userReturned==null){
+                    //     vm.error="User not found";
+                    // }else{
+                    //     $location.url("/user/"+userReturned._id);
+                    // }
                 }
             }
         });
