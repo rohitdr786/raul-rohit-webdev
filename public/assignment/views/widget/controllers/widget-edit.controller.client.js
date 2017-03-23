@@ -39,7 +39,7 @@
         }
 
         function updateWidget(newWidget){
-
+            newWidget.size=parseInt(newWidget.size);
             var promise=WidgetService.updateWidget(newWidget);
             promise.success(function(response){
                 vm.message="Widget successfully updated";

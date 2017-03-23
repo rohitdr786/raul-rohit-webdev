@@ -14,7 +14,8 @@
             "findWidgetById": findWidgetById,
             "updateWidget": updateWidget,
             "deleteWidget": deleteWidget,
-            "createWidgetFromType": createWidgetFromType
+            "createWidgetFromType": createWidgetFromType,
+            "updateWidgetIndex":updateWidgetIndex
         };
         return api;
 
@@ -54,9 +55,16 @@
                 "text": "Sample Text",
                 "url": "Sample URL",
                 "width": "100%",
-                "widgetType": widgetType.toUpperCase()
+                "type": widgetType.toUpperCase()
             };
             return createWidget(pageID, widget);
+        }
+
+        function updateWidgetIndex(startIndex,stopIndex,pageId){
+            var widget={};
+            widget.start=startIndex;
+            widget.stop=stopIndex;
+            return $http.put("/api/page/"+pageId+"/widget",widget);
         }
     }
 })();

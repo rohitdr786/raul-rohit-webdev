@@ -17,7 +17,7 @@
                 if(newPageData!=null){
                     var promise=PageService.createPage(websiteId,newPageData);
                     promise.then(function(response){
-                        $location.url("/user/"+userId+"/website/"+response.data.websiteId+"/page");
+                        $location.url("/user/"+userId+"/website/"+websiteId+"/page");
                     },function(){
                         vm.error="Unable to create new page";
                     });

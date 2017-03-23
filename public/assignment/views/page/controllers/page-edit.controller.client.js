@@ -44,7 +44,7 @@
 
                 var promise=PageService.deletePage(pageId);
                 promise.then(function(response){
-                    $location.url("/user/"+userId+"/website/"+response.data.websiteId+"/page");
+                    $location.url("/user/"+userId+"/website/"+vm.websiteId+"/page");
                 },function(){
                     vm.error="Unable to delete";
                 });
