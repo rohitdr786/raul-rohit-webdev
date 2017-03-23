@@ -26,7 +26,7 @@
                 if(newWebsiteData!=null){
                     var promise=WebsiteService.createWebsite(userId,newWebsiteData);
                     promise.success(function(response){
-                        $location.url("/user/"+response.developerId+"/website");
+                        $location.url("/user/"+response._user+"/website");
                     });
                     promise.error(function(){
                         vm.error="Unable to add new website";
