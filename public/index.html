@@ -1,30 +1,205 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--<!DOCTYPE html>-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link href="css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="js/scriptfile.js"></script>
 </head>
 <body>
-    <h1>Web Dev Course Home Page</h1>
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-text pull-right header-padding-right">
+                <a href="#social" class="navbar-text">Social</a>
+            </div>
+            <div class="navbar-text pull-right header-padding-right">
+                <a href="#project" class="navbar-text">Projects</a>
+            </div>
+            <div class="navbar-text pull-right header-padding-right">
+                <a href="#about" class="navbar-text">About</a>
+            </div>
+            <div class="navbar-text">
+                Name
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <div id="about">
+                <br>
+                <div class="text-center">
+                    <h1>Rohit Raul</h1>
+                </div>
+                <div class="text-center">
+                    <img class="img-circle img-border" src="images/rohit.jpg" height="200px" width="200px">
+                </div>
+                <br>
+                <div class="text-center"><span class="hello">Hello!!!</span> Thank you for taking the time to visit</div>
+                <div class="text-center"><h3><span class="hello">Here's something about me...</span></h3></div>
+                <div class="text-center">
+                    <p>
+                        I am a Computer Science Graduate Student at Northeastern University, Boston.</p>
+                    <p>Prior to this, I worked as an Application Developer in IBM India Pvt. Ltd for 2 years.</p>
+                    <p><strong>Interests/Expertise</strong>: Full Stack Web Development(MEAN, J2EE), Java Programming.
+                    </p>
+                </div>
+                <br>
+                <!--Flip section Starts-->
+                <div class="flip-pers">
+                    <div id="div-flip-toggler" class="flip-height">
+                        <div class="flip-div1">
+                            <div class="col-xs-12 card-top">
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('experience');">Experience</button></div>
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('education');">Education</button></div>
+                            </div>
+                            <div id="card-body1" class="col-xs-12">
+                                <div class="text-center"><h3><span class="glyphicon glyphicon-briefcase"></span> Experience</h3></div>
+                                <div class="text-justify ">
+                                    <ul class="fa-ul">
+                                        <li><i class="fa-li fa fa-check-circle"></i>I have <img src="images/random/two finger.png" height="24" width="20"/>
+                                            years of experience working as an application developer for IBM India Pvt. Ltd.
+                                        </li>
+                                        <li><i class="fa-li fa fa-check-circle"></i>Primary responsibility included developing and maintaining website of one of the top Indian
+                                            telecommunication company using backend technologies involving J2EE, SQL, WebSphere Portal
+                                            and Web Content Management tool.
+                                        </li>
+                                        <li><i class="fa-li fa fa-check-circle"></i>Also got exposure working with the front end technologies like HTML, Javascript and
+                                            JQuery.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 card-bot">
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('portfolio');">Portfolio</button></div>
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('skills');">Skills</button></div>
+                            </div>
+                        </div>
+                        <div class="flip-div2">
+                            <div class="col-xs-12 card-top">
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('experience');">Experience</button></div>
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('education');">Education</button></div>
+                            </div>
+                            <div id="card-body2" class="col-xs-12">Main body 2</div>
+                            <div class="col-xs-12 card-bot">
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('portfolio');">Portfolio</button></div>
+                                <div class="col-xs-6 text-center"><button class="btn btn-block" onclick="flip('skills');">Skills</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Flip section Ends-->
 
-    <p>
-        Customize this home page to your linking.
-    </p>
+                <div id="experience" class="hidden">
+                    <div class="text-center"><h3><span class="glyphicon glyphicon-briefcase"></span> Experience</h3></div>
+                    <div class="text-justify ">
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-check-circle"></i>I have <img src="images/random/two finger.png" height="24" width="20"/>
+                                years of experience working as an application developer for IBM India Pvt. Ltd.
+                            </li>
+                            <li><i class="fa-li fa fa-check-circle"></i>Primary responsibility included developing and maintaining website of one of the top Indian
+                                telecommunication company using backend technologies involving J2EE, SQL, WebSphere Portal
+                                and Web Content Management tool.
+                            </li>
+                            <li><i class="fa-li fa fa-check-circle"></i>Also got exposure working with the front end technologies like HTML, Javascript and
+                                JQuery.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="education" class="hidden">
+                    <div class="text-center"><h3><span class="glyphicon glyphicon-education education-cap"></span>Education</h3></div>
+                    <div class="text-justify">
+                        <div class="col-xs-6"  style="overflow-y: auto; height: 250px;">
+                            <p><img src="images/random/degree 2.png" height="20" width="18"/> <strong>MS Computer Science</strong><br>
+                                <i class="fa fa-university" aria-hidden="true"></i> Northeastern University<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boston, MA, USA<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;September 2016 - <span class="glyphicon glyphicon-gift"></span></p>
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/index.html">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/rohitdr786/raul-rohit-webdev">My repository at GitHub.com</a>
-        </li>
-    </ul>
+                            <p><span class="glyphicon glyphicon-folder-open"></span>  Courses:</p>
+                            <p><span class="glyphicon glyphicon-book"></span> CS 5010 - Program Design Paradigms</p>
+                            <p><span class="glyphicon glyphicon-book"></span> CS 5100 - Fundamentals of A.I.</p>
+                            <p><span class="glyphicon glyphicon-book"></span> CS 5800 - Algorithms</p>
+                            <p><span class="glyphicon glyphicon-book"></span> CS 5610 - Web Development</p>
+                        </div>
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-5"  style="overflow-y: auto; height: 250px;">
+                            <p><img src="images/random/degree 2.png" height="20" width="18"/> <strong>BTech Computer Science</strong><br>
+                                <i class="fa fa-university" aria-hidden="true"></i> NMIMS University<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mumbai, MH, India<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;August 2010 - May 2014</p>
+
+                            <p><span class="glyphicon glyphicon-folder-open"></span>  Courses:</p>
+                            <p><span class="glyphicon glyphicon-book"></span> Program Design Paradigms</p>
+                            <p><span class="glyphicon glyphicon-book"></span> Design & Analysis of Algorithms</p>
+                            <p><span class="glyphicon glyphicon-book"></span> Intelligent Systems</p>
+                            <p><span class="glyphicon glyphicon-book"></span> Fundamentals of Web Development</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="portfolio" class="hidden">
+                    <div class="text-center"><i class="fa fa-code-fork" aria-hidden="true"></i> Portfolio</h3></div>
+                    <div class="text-justify">
+                        <ul class="fa-ul">
+                            <li><img>
+                            </li>
+                            <li>hell
+                            </li>
+                            <li>we
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="skills" class="hidden">
+                    <div class="text-center"><h3>Skills</h3></div>
+                    <div class="text-justify">
+                        <ul>
+                            <li>I have 2 years of experience working as an application developer for IBM India Pvt. Ltd.
+                            </li>
+                            <li>Primary responsibility included developing and maintaining website of one of the top Indian
+                                telecommunication company using backend technologies involving J2EE, SQL, WebSphere Portal
+                                and Web Content Management tool.
+                            </li>
+                            <li>Also got exposure working with the front end technologies like HTML, Javascript and
+                                JQuery.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="hr-color">
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+
+        <div class="navbar-text pull-left">
+            <a href="#about" class="navbar-text">About</a>
+        </div>
+        <div class="navbar-text pull-left">
+            <a href="#project" class="navbar-text">Projects</a>
+        </div>
+        <div class="navbar-text pull-left">
+            <a href="#social" class="navbar-text">Social</a>
+        </div>
+    </nav>
+</div>
 </body>
 </html>

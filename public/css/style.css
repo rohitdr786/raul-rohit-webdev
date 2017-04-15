@@ -1,0 +1,158 @@
+body{
+    background-color: whitesmoke;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.header-padding-right{
+    padding-right: 10px;
+}
+.hr-color{
+    border-top-color:#a59191;
+}
+a:hover{
+    text-decoration: none;
+}
+.navbar-text {
+    float: none;
+}
+
+.img-border{
+    border: 1px solid #868a96;
+}
+
+.ui-state-active{
+    border-color: #868a96;
+    background-color: #b9b9b9;
+}
+
+.ui-state-focus{
+    border-color: #868a96;
+}
+
+.hello{
+    font-family: "Monotype Corsiva";
+    font-size: x-large;
+}
+
+/*flip css start*/
+.flip-pers{
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -ms-perspective: 1000px;
+    -o-perspective: 1000px;
+    perspective: 1000px;
+    border: 2px solid #868a96;
+    /*display: block;*/
+}
+.flip-height{
+    /*-webkit-backface-visibility:hidden;*/
+    /*-moz-backface-visibility:hidden;*/
+    /*-ms-backface-visibility:hidden;*/
+    /*-o-backface-visibility:hidden;*/
+    /*backface-visibility:hidden;*/
+    height:400px;
+    -webkit-transition: -webkit-transform 3s;
+    -moz-transition: -moz-transform 3s;
+    -ms-transition: -ms-transform 3s;
+    -o-transition: -o-transform 3s;
+    transition: transform 3s;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    -ms-transform-style:preserve-3d;
+    -o-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+    position:relative;
+
+}
+.flip-flip{
+    /*-webkit-transition: -webkit-transform 3s;*/
+    /*transition: transform 3s;*/
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.flip-div1{
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
+    height: inherit;
+    background-color: white;
+    /*z-index: 1;*/
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    position: absolute;
+    left: 0px;
+    top:0px;
+}
+.flip-div2{
+    -webkit-backface-visibility:hidden;
+    -moz-backface-visibility:hidden;
+    -ms-backface-visibility:hidden;
+    -o-backface-visibility:hidden;
+    backface-visibility:hidden;
+    height: inherit;
+    background-color: white;
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    position: absolute;
+    left: 0px;
+    top:0px;
+}
+/*flip css ends*/
+/*Card css starts*/
+.card-top{
+    position: static;
+    top: 0;
+}
+.card-bot{
+    position: fixed;
+    bottom: 0;
+}
+/*Card css ends*/
+
+
+/*Education Css*/
+.cups-Div {
+    /*background: url('../images/cups/cup.png') no-repeat center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+    background: url('../images/cups/cup.png');
+
+    /* Full height */
+    /*height: 100%;*/
+    max-width: 80%;
+    height: auto;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*Education Css ends*/
+
+/*Education css*/
+.education-cap{
+    -webkit-transition: -webkit-transform 0s;
+    -moz-transition: -moz-transform 0s;
+    -ms-transition: -ms-transform 0s;
+    -o-transition: -o-transform 0s;
+    transition: transform 0s;
+    -webkit-transform: rotate(-26deg);
+    transform: rotate(-26deg);
+    -ms-transform: rotate(-26deg);
+    top:-7px;
+    left: 9px;
+}
+/*Education css ends*/
